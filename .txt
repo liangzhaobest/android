@@ -1,0 +1,131 @@
+#include<iostream>
+#include"标头.h"
+using namespace std;
+void Point::GetX(void)
+{
+	cout << "请输入圆心的横坐标 x：";
+	cin >> x;
+	cout << endl;
+}
+void Point::GetY(void)
+{
+	cout << "请输入圆心的纵坐标 y: ";
+	cin >> y;
+	cout << endl;
+}
+void Point::Show(void)
+{
+	cout << "圆心的坐标为：（" << x << "," << y << ")" << endl;
+}
+int Circle::GetR(void)
+{
+	cout << "请输入圆的半径R：";
+	cin >> R;
+	cout << endl;
+	return 0;
+}
+double Circle::GetS(void)
+{
+
+	S = (3.14*R*R) / 2;
+	cout << "半径为" << R << "的圆的面积为：" << S << endl;
+	return 0;
+}
+void YZ::Getr(void)
+{
+	cout << "请输入圆柱的底面半径r:";
+	cin >> r;
+	cout << endl;
+}
+void YZ::GetH(void)
+{
+	cout << "请输入圆柱的高度H:" ;
+	cin >> H;
+	cout << endl;
+}
+double YZ::GetSq(void)
+{
+	Sq = H*(2*r*3.14);
+	cout << "该圆柱的表面积为：" << Sq<< endl;
+	return 0;
+}
+double YZ::GetV(void)
+{
+	V = H*((3.14*r*r) / 2);
+	cout << "圆柱的体积为：" << V << endl;
+	return 0;
+}
+int main()
+{
+	Point pp;
+	Circle mycircle;
+	YZ myyz;
+	pp.GetX();
+	pp.GetY();
+	pp.Show();
+	mycircle.GetR();
+	mycircle.GetS();
+	myyz.Getr();
+	myyz.GetH();
+	myyz.GetSq();
+	myyz.GetV();
+	
+	
+	system("pause");
+	return 0;
+}
+
+
+
+
+
+class Point
+{
+private:
+	int x, y;
+public:
+	void GetX(void);
+	void GetY(void);
+	void Show(void);
+};
+class Circle
+{
+private:
+	int R;
+	Point xy;
+	float S;
+public:
+	int GetR(void);
+	double GetS(void);
+};
+class YZ
+{
+private:
+	int r, H;
+	float V, Sq;
+public:
+	void Getr(void);
+	void GetH(void);
+	double GetSq(void);
+	double GetV(void);
+};
+
+请输入圆心的横坐标 x：3
+
+请输入圆心的纵坐标 y: 4
+
+圆心的坐标为：（3,4)
+请输入圆的半径R：2
+
+半径为2的圆的面积为：6.28
+请输入圆柱的底面半径r:2
+
+请输入圆柱的高度H:2
+
+该圆柱的表面积为：25.12
+圆柱的体积为：12.56
+请按任意键继续. . .
+
+
+
+
