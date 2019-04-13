@@ -1,0 +1,173 @@
+//this was a mistake
+#include<iostream>
+#include<string>
+using namespace std;
+struct person
+{
+	int name;
+	int math;
+	int english;
+	int chinese;
+	int all;
+};
+class Classmate
+{
+public:
+	person *st=new person[N];
+	person *st1=new person[N];
+	person *st2 = new person[N];
+	person *st3 = new person[N];
+	void Getinfor();
+	void Gethighest();
+	void GetAll();
+	void Show();
+	void SortE(person a[],int n);
+	void SortM(person a[],int n);
+	void SortAll(person a[], int n);
+	void SortC(person a[], int n);
+	void Delete();
+private:
+	int N;
+	
+};
+void Classmate::Delete()
+{
+	delete[] st;
+	delete[] st1;
+	delete[] st2;
+	delete[] st3;
+}
+void Classmate::GetAll()
+{
+	for (int i = 0;i < N;i++)
+	{
+		st[i].all = st[i].chinese + st[i].english + st[i].math;
+	}
+}
+void Classmate::Getinfor()
+{
+	cout << "Please input the amount of your classmates:";
+	cin >> N;
+	for (int i = 0;i < N;i++)
+	{
+		cout << "Please input the student's name:";
+		cin >> st[i].name;
+		cout << "His(her) Math score:";
+		cin >> st[i].math;
+		cout << "His(her) English score: ";
+		cin >> st[i].english;
+		cout << "His(her) Chinese score:" << endl;
+		cin >> st[i].chinese;
+	}
+	st1 = st;st2 = st;st3 = st;
+}
+void Classmate::Gethighest()
+{
+	SortC(st1, N);
+	SortM(st2, N);
+	SortE(st3, N);
+	SortAll(st, N);
+}
+void Classmate::Show()
+{
+	cout <<st1[0].name<<"'s Chinese score is the highest,it's"<<st1[0].chinese<<endl;
+	cout << st2[0].name << "'s Math score is the highest,it's" << st2[0].math << endl;
+	cout << st3[0].name << "'s English score is the highest,it's" << st3[0].chinese << endl;
+	cout << st[0].name << "'s whole score is the highest,it's" << st[0].all << endl;
+	cout << "The order of them from the highest to the lowest is:" << endl;
+	for (int i = 0;i < N;i++)
+	{
+		cout << st[i].name << " : " << st[i].all<<endl;
+	}
+}
+void Classmate::SortAll(person a[],int n)
+{
+	int  temp, j;
+	int  temp1;
+	for (int i = 0;i<n;i++)
+	{
+		for (j = i;j < n;j++)
+		{
+			if (a[i].all <= a[j].all)
+			{
+				temp = a[i].all;
+				temp1 = a[i].name;
+				a[i].all = a[j].all;
+				a[i].name = a[j].name;
+				a[j].all = temp;
+				a[j].name = temp1;
+			}
+		}
+	}
+}
+void Classmate::SortC(person a[],int n)
+{
+	int temp, j;
+	int  temp1;
+	for (int i = 0;i < n;i++)
+	{
+		for (j = i;j <n; j++)
+		{
+			if (a[i].chinese <= a[j].chinese)
+			{
+				temp = a[i].chinese;
+				temp1 = a[i].name;
+				a[i].chinese = a[j].chinese;
+				a[i].name = a[j].name;
+				a[j].chinese = temp;
+				a[j].name = temp1;
+			}
+		}
+	}
+}
+void Classmate::SortM(person a[], int n)
+{
+	int  temp, j;
+	int  temp1;
+	for (int i = 0;i < n;i++)
+	{
+		for (j = i;j < n; j++)
+		{
+			if (a[i].math <= a[j].math)
+			{
+				temp = a[i].math;
+				temp1 = a[i].name;
+				a[i].math = a[j].math;
+				a[i].name = a[j].name;
+				a[j].math = temp;
+				a[j].name = temp1;
+			}
+		}
+	}
+}
+void Classmate::SortE(person a[], int n)
+{
+	int  temp, j;
+	int  temp1;
+	for (int i = 0;i < n;i++)
+	{
+		for (j = i;j < n; j++)
+		{
+			if (a[i].english <= a[j].english)
+			{
+				temp = a[i].english;
+				temp1 = a[i].name;
+				a[i].english = a[j].english;
+				a[i].name = a[j].name;
+				a[j].english = temp;
+				a[j].name = temp1;
+			}
+		}
+	}
+}
+int main()
+{
+	Classmate myclassmate;
+	myclassmate.Getinfor();
+	myclassmate.Gethighest();
+	myclassmate.GetAll();
+	myclassmate.Show();
+	myclassmate.Delete();
+	system("pause");
+	return 0;
+}
