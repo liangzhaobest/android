@@ -1,0 +1,25 @@
+1.curl 
+  curl cheat.sh
+  curl wttr.in (check the weather)you can use curl wttr.in/name   to check other location's weather
+  curl enables you to grab something on the website 
+2.touch
+  you can create a /some file with(touch file.txt)without editing it
+  by the way,ls -l)can show you the time the file was created
+3.ping
+  ping command can detect whether the internet is alright
+  example:ping www.google.com -c 3
+  -c 3 means send three packages so that the process will not keep going
+  or you can stop the process using Ctrl and c
+4.less
+you can see the files content with cat,but when the files are too long you can use(less file.txt)to see that
+5.sudo blkid
+ running this command you can check the devices on your system
+6.su +user's name
+  switch to other user
+  continue to run cd ~)will cd into the user's directory
+7.ctrl +t
+  open a terminal
+8.sudo shutdown -h (now/......)
+  sudo shutdown -c  (cancel the shutdown command)
+9.man(show how to use something)
+  man bleachbit
